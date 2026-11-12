@@ -24,7 +24,7 @@ public class MainTienda {
                     break;
 
                 case 2:
-                    imprimitJuegos();
+                    imprimirJuegos();
                     break;
 
                 case 3:
@@ -43,7 +43,7 @@ public class MainTienda {
                     break;
 
                 default:
-                    System.out.println("------Opción no válida-----");
+                    System.out.println("------Opción no válida-----\n");
             }
         } while (opc!=7);
     }
@@ -66,14 +66,11 @@ public class MainTienda {
 
         String categoria = Validacion.leerString("Ingrese la categoria, no puede ser nula ni blanca:");
 
-        System.out.print("Ingrese el tamanio: ");
-        int tamanio = Integer.parseInt(sc.nextLine()); //envoltorio: convertir cadenas a otros tipos de datos, usado segun el que necesite
+        int tamanio = Validacion.intMayorA("Ingrese el tamanio (>0): ", 0); //envoltorio: convertir cadenas a otros tipos de datos, usado segun el que necesite
 
-        System.out.print("Ingrese el precio: ");
-        double precio = Double.parseDouble(sc.nextLine()); //al parecer integer no tiene un metodo para double, por lo que uso Double
+        double precio = Validacion.doublePositivo("Ingrese el precio: "); //al parecer integer no tiene un metodo para double, por lo que uso Double
 
-        System.out.print("Ingrese el stock inicial: ");
-        int licenciasDisponibles = Integer.parseInt(sc.nextLine());
+        int licenciasDisponibles = Validacion.intPositivo("Ingrese el stock inicial: ");
 
         if (tienda.agregarJuego(new Juego(nombre,categoria,tamanio,licenciasDisponibles,precio))){
             //ventanas emergentes, parte de la interfaz gráfica, pero no basta con eos para el proyecto
@@ -83,7 +80,7 @@ public class MainTienda {
         }
     }
 
-    public static void imprimitJuegos () {
+    public static void imprimirJuegos () {
         Juego juegos[] = tienda.getJuegos();
         for (Juego j : juegos){
             if (j!=null){
@@ -95,7 +92,10 @@ public class MainTienda {
         }
     }
 
-    public static void vender () {
+    public static void buscarJuego () {
+        Juego juegos[] = tienda.getJuegos();
+        String nomBuscar = Validacion.leerString("Ingrese el nombre del juego a buscar: ");
+        boolean encontrado=false;
 
     }
 

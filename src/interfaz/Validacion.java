@@ -44,7 +44,16 @@ public class Validacion {
         do {
             System.out.print(mensaje);
             num = Integer.parseInt(sc.nextLine());
-        } while (num < 0);
+        } while (num <= 0);
+        return num;
+    }
+
+    public static double doublePositivo(String mensaje) {
+        double num;
+        do {
+            System.out.print(mensaje);
+            num = Double.parseDouble(sc.nextLine());
+        } while (num <= 0);
         return num;
     }
 
