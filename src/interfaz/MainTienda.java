@@ -62,16 +62,15 @@ public class MainTienda {
 
     public static void ingresarJuego () {
         System.out.println("*******Ingreso de datos********");
-        //deberia validar xdddd
-        String nombre = Validacion.leerString("Ingrese el nombre, no puede ser nulo ni blanco");
+        String nombre = Validacion.leerString("Ingrese el nombre, no puede ser nulo ni blanco:");
 
-        String categoria = Validacion.leerString("Ingrese la categoria, no puede ser nula ni blanca");
+        String categoria = Validacion.leerString("Ingrese la categoria, no puede ser nula ni blanca:");
 
         System.out.print("Ingrese el tamanio: ");
         int tamanio = Integer.parseInt(sc.nextLine()); //envoltorio: convertir cadenas a otros tipos de datos, usado segun el que necesite
 
         System.out.print("Ingrese el precio: ");
-        double precio = Double.parseDouble(sc.nextLine());
+        double precio = Double.parseDouble(sc.nextLine()); //al parecer integer no tiene un metodo para double, por lo que uso Double
 
         System.out.print("Ingrese el stock inicial: ");
         int licenciasDisponibles = Integer.parseInt(sc.nextLine());
